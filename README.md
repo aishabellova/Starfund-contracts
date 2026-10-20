@@ -437,3 +437,6 @@ MIT
 
 <!-- handsoff-issue-256 -->
 - #256: [Wave 10 #153] request_clear_legal_hold Does Not Store Requesting Admin Identity
+
+<!-- handsoff-issue-257 -->
+- #257: [Wave 10 #154] clear_legal_hold Permitted Without Enforcing Minimum Delay When LegalHoldClearDelay is Unset
