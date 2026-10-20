@@ -432,3 +432,8 @@ cargo llvm-cov --features testutils --fail-under-lines 95 --summary-only -p star
 ## Contributing
 
 MIT
+
+## Handsoff notes
+
+<!-- handsoff-issue-256 -->
+- #256: [Wave 10 #153] request_clear_legal_hold Does Not Store Requesting Admin Identity
