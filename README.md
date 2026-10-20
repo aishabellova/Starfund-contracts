@@ -432,3 +432,8 @@ cargo llvm-cov --features testutils --fail-under-lines 95 --summary-only -p star
 ## Contributing
 
 MIT
+
+## Handsoff notes
+
+<!-- handsoff-issue-272 -->
+- #272: [Wave 10 #169] batch_record_collateral Permits Zero-Length Batch Calling Contract Storage
