@@ -437,3 +437,6 @@ MIT
 
 <!-- handsoff-issue-268 -->
 - #268: [Wave 10 #165] revoke_attestation_digests Batch Size Unconstrained by MAX_ATTESTATION_REVOKE_BATCH
+
+<!-- handsoff-issue-269 -->
+- #269: [Wave 10 #166] unrevoke_attestation_digest Fails to Emit Event Upon Unrevoking Attestation
