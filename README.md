@@ -432,3 +432,8 @@ cargo llvm-cov --features testutils --fail-under-lines 95 --summary-only -p star
 ## Contributing
 
 MIT
+
+## Handsoff notes
+
+<!-- handsoff-issue-268 -->
+- #268: [Wave 10 #165] revoke_attestation_digests Batch Size Unconstrained by MAX_ATTESTATION_REVOKE_BATCH
