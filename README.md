@@ -440,3 +440,6 @@ MIT
 
 <!-- handsoff-issue-277 -->
 - #277: [Wave 10 #174] Persistent Key Storage Rent Accumulation After Investor Refund in Cancelled Escrows
+
+<!-- handsoff-issue-278 -->
+- #278: [Wave 10 #175] CallbackContext Storage Leak: Consumed Callback Records Persist in Storage Indefinitely
