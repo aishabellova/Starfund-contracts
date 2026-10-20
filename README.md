@@ -443,3 +443,6 @@ MIT
 
 <!-- handsoff-issue-270 -->
 - #270: [Wave 10 #167] record_sme_collateral_commitment Permits Zero Valuation Commitment With Non-Empty Asset Reference
+
+<!-- handsoff-issue-271 -->
+- #271: [Wave 10 #168] record_sme_collateral_commitment Missing Validation That Invoice ID Matches Escrow Instance
