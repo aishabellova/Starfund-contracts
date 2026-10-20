@@ -437,3 +437,6 @@ MIT
 
 <!-- handsoff-issue-272 -->
 - #272: [Wave 10 #169] batch_record_collateral Permits Zero-Length Batch Calling Contract Storage
+
+<!-- handsoff-issue-273 -->
+- #273: [Wave 10 #170] clear_sme_collateral_commitment Callable in Settled State Without Checking Principal Repayment
