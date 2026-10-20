@@ -440,3 +440,6 @@ MIT
 
 <!-- handsoff-issue-269 -->
 - #269: [Wave 10 #166] unrevoke_attestation_digest Fails to Emit Event Upon Unrevoking Attestation
+
+<!-- handsoff-issue-270 -->
+- #270: [Wave 10 #167] record_sme_collateral_commitment Permits Zero Valuation Commitment With Non-Empty Asset Reference
