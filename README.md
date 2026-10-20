@@ -443,3 +443,6 @@ MIT
 
 <!-- handsoff-issue-278 -->
 - #278: [Wave 10 #175] CallbackContext Storage Leak: Consumed Callback Records Persist in Storage Indefinitely
+
+<!-- handsoff-issue-279 -->
+- #279: [Wave 10 #176] AttestationRevoked Storage Markers Lack Automated TTL Extension Alongside Attestation Append Log
