@@ -8,6 +8,12 @@
 //! build a [`DataKey`] inline — reducing the risk of typos, discriminant drift between
 //! modules, and copy-paste errors when a new key needs to be added.
 //!
+//! ## Coverage
+//!
+//! Every variant of [`DataKey`] has a corresponding constructor function in this module.
+//! Call sites should resolve keys through these helpers rather than constructing
+//! `DataKey::Variant` literals inline.
+//!
 //! ## Collateral keys
 //!
 //! The collateral pledge key family is managed by [`collateral_pledge_key`]. The
@@ -23,10 +29,6 @@
 //! `.unwrap_or(default)` and its absence does not change existing entrypoint semantics.
 //! Renaming a variant, changing its XDR discriminant, or altering the stored type of an
 //! existing key is **breaking** and requires a `migrate` path or a full redeploy.
-
-// Key-builder helpers are part of the crate's public API for symmetry. Call sites
-// currently use `DataKey::Variant` literals inline; the helpers are kept so the
-// indirection layer remains available without churn if/when callers migrate.
 
 use crate::DataKey;
 use soroban_sdk::Address;
@@ -122,6 +124,41 @@ pub(crate) fn released_amount() -> DataKey {
 /// `get_sme_collateral_commitment`) all resolve the key through this helper.
 pub(crate) fn collateral_pledge_key() -> DataKey {
     DataKey::SmeCollateralPledge
+}
+
+/// Instance-storage pause state flag controlling whether state-changing entrypoints are halted.
+pub(crate) fn pause_state() -> DataKey {
+    DataKey::PauseState
+}
+
+/// Instance-storage admin nonce used to order and deduplicate admin operations.
+pub(crate) fn admin_nonce() -> DataKey {
+    DataKey::AdminNonce
+}
+
+/// Instance-storage legal-hold flag blocking settlement and release while set.
+pub(crate) fn legal_hold() -> DataKey {
+    DataKey::LegalHold
+}
+
+/// Instance-storage ledger timestamp at which the escrow was settled.
+pub(crate) fn settled_at() -> DataKey {
+    DataKey::SettledAt
+}
+
+/// Instance-storage flag indicating an active dispute on the escrow.
+pub(crate) fn dispute_active() -> DataKey {
+    DataKey::DisputeActive
+}
+
+/// Instance-storage marker recording that an attestation has been revoked.
+pub(crate) fn attestation_revoked() -> DataKey {
+    DataKey::AttestationRevoked
+}
+
+/// Instance-storage configured storage limit for the escrow.
+pub(crate) fn storage_limit() -> DataKey {
+    DataKey::StorageLimit
 }
 
 #[cfg(test)]
