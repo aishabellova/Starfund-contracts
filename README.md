@@ -432,3 +432,8 @@ cargo llvm-cov --features testutils --fail-under-lines 95 --summary-only -p star
 ## Contributing
 
 MIT
+
+## Handsoff notes
+
+<!-- handsoff-issue-276 -->
+- #276: [Wave 10 #173] get_rent_bump_plan Omits Allowlist and Attestation Keys from Storage Footprint Estimation
