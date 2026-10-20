@@ -437,3 +437,6 @@ MIT
 
 <!-- handsoff-issue-276 -->
 - #276: [Wave 10 #173] get_rent_bump_plan Omits Allowlist and Attestation Keys from Storage Footprint Estimation
+
+<!-- handsoff-issue-277 -->
+- #277: [Wave 10 #174] Persistent Key Storage Rent Accumulation After Investor Refund in Cancelled Escrows
