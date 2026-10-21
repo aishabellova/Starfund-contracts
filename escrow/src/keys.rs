@@ -38,6 +38,11 @@ pub(crate) fn investor_contribution(investor: Address) -> DataKey {
     DataKey::InvestorContribution(investor)
 }
 
+/// Per-investor persistent gross deposits, unaffected by unfunds or withdrawals.
+pub(crate) fn investor_total_deposited(investor: Address) -> DataKey {
+    DataKey::InvestorTotalDeposited(investor)
+}
+
 /// Per-investor persistent effective yield (bps) selected on the investor's first deposit.
 pub(crate) fn investor_effective_yield(investor: Address) -> DataKey {
     DataKey::InvestorEffectiveYield(investor)
@@ -46,6 +51,11 @@ pub(crate) fn investor_effective_yield(investor: Address) -> DataKey {
 /// Per-investor persistent claim-not-before ledger timestamp (`0` = no extra claim gate).
 pub(crate) fn investor_claim_not_before(investor: Address) -> DataKey {
     DataKey::InvestorClaimNotBefore(investor)
+}
+
+/// Per-investor original lock duration selected on the first funding call.
+pub(crate) fn investor_committed_lock_secs(investor: Address) -> DataKey {
+    DataKey::InvestorCommittedLockSecs(investor)
 }
 
 /// Per-investor persistent claimed-payout marker.
@@ -126,39 +136,9 @@ pub(crate) fn collateral_pledge_key() -> DataKey {
     DataKey::SmeCollateralPledge
 }
 
-/// Instance-storage pause state flag controlling whether state-changing entrypoints are halted.
-pub(crate) fn pause_state() -> DataKey {
-    DataKey::PauseState
-}
-
-/// Instance-storage admin nonce used to order and deduplicate admin operations.
-pub(crate) fn admin_nonce() -> DataKey {
-    DataKey::AdminNonce
-}
-
-/// Instance-storage legal-hold flag blocking settlement and release while set.
-pub(crate) fn legal_hold() -> DataKey {
-    DataKey::LegalHold
-}
-
-/// Instance-storage ledger timestamp at which the escrow was settled.
-pub(crate) fn settled_at() -> DataKey {
-    DataKey::SettledAt
-}
-
-/// Instance-storage flag indicating an active dispute on the escrow.
-pub(crate) fn dispute_active() -> DataKey {
-    DataKey::DisputeActive
-}
-
-/// Instance-storage marker recording that an attestation has been revoked.
-pub(crate) fn attestation_revoked() -> DataKey {
-    DataKey::AttestationRevoked
-}
-
-/// Instance-storage configured storage limit for the escrow.
-pub(crate) fn storage_limit() -> DataKey {
-    DataKey::StorageLimit
+/// Instance-storage commitments from the most recent collateral batch.
+pub(crate) fn collateral_pledge_batch_key() -> DataKey {
+    DataKey::SmeCollateralCommitmentBatch
 }
 
 #[cfg(test)]
