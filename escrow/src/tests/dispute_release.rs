@@ -334,3 +334,29 @@ fn cancel_funding_during_dispute_is_blocked() {
     let result = client.try_cancel_funding(&0u32);
     assert_contract_error(result, EscrowError::DisputeBlocksCancelFunding);
 }
+
+#[test]
+fn reopening_dispute_preserves_previous_resolution_history() {
+    let (_, client, admin, _) = funded_client();
+
+    // First incident: open and resolve.
+    client.open_dispute(&admin);
+    let first = client.get_dispute_record().unwrap();
+    client.close_dispute(&admin, &true);
+    let resolved_first = client.get_dispute_record().unwrap();
+    assert_eq!(resolved_first.state, DisputeState::Resolved);
+
+    // Second incident: reopening must not destroy the first resolution record.
+    client.open_dispute(&admin);
+    let reopened = client.get_dispute_record().unwrap();
+    assert_eq!(reopened.state, DisputeState::Open);
+
+    // The historical audit log retains the resolved first incident.
+    let history = client.get_dispute_history(&0u32, &10u32);
+    assert_eq!(history.len(), 1);
+    let archived = history.get(0).unwrap();
+    assert_eq!(archived.state, DisputeState::Resolved);
+    assert_eq!(archived.resolved_at, resolved_first.resolved_at);
+    assert_eq!(archived.resolved_by, resolved_first.resolved_by);
+    assert_ne!(archived.opened_at, first.opened_at);
+}
